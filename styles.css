@@ -267,3 +267,22 @@ input:focus, textarea:focus{ border-color: rgba(110,231,255,.55); }
     0 0 0 1px rgba(255, 255, 255, 0.35),
     0 0 25px rgba(255, 255, 255, 0.25);
 }
+/* Mobile tap state so glow works when you tap anywhere on the card */
+.link-card.tap-active {
+  transform: translateY(-4px);
+}
+.link-card.youtube.tap-active {
+  box-shadow:
+    0 0 0 1px rgba(255, 0, 0, 0.4),
+    0 0 25px rgba(255, 0, 0, 0.45);
+}
+.link-card.discord.tap-active {
+  box-shadow:
+    0 0 0 1px rgba(88, 101, 242, 0.5),
+    0 0 25px rgba(88, 101, 242, 0.45);
+}
+.link-card.github.tap-active {
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.35),
+    0 0 25px rgba(255, 255, 255, 0.25);
+}
