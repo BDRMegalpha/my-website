@@ -109,3 +109,53 @@ function draw() {
   requestAnimationFrame(draw);
 }
 draw();
+// Make entire .link-card tappable + prevent "stuck hover" on mobile
+(() => {
+  const cards = Array.from(document.querySelectorAll(".link-card"));
+
+  function clearActive() {
+    cards.forEach((c) => c.classList.remove("tap-active"));
+  }
+
+  // Clear glow when you tap anywhere else, scroll, or leave the page
+  document.addEventListener("pointerdown", (e) => {
+    if (!e.target.closest(".link-card")) clearActive();
+  }, { passive: true });
+
+  window.addEventListener("scroll", clearActive, { passive: true });
+  window.addEventListener("blur", clearActive);
+
+  cards.forEach((card) => {
+    const href = card.getAttribute("data-href");
+
+    // Tap/hover feedback on touch devices
+    card.addEventListener("pointerdown", (e) => {
+      // If you pressed a real link/button inside, let it behave normally
+      if (e.target.closest("a, button")) return;
+      clearActive();
+      card.classList.add("tap-active");
+    });
+
+    card.addEventListener("pointerup", () => {
+      // remove glow shortly after tap so it never "sticks"
+      setTimeout(() => card.classList.remove("tap-active"), 250);
+    });
+
+    card.addEventListener("pointercancel", () => card.classList.remove("tap-active"));
+
+    // Click anywhere on the card navigates (unless you clicked the inner button/link)
+    card.addEventListener("click", (e) => {
+      if (e.target.closest("a, button")) return;
+      if (href) window.open(href, "_blank", "noopener,noreferrer");
+    });
+
+    // Keyboard support (Enter/Space)
+    card.addEventListener("keydown", (e) => {
+      if (!href) return;
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        window.open(href, "_blank", "noopener,noreferrer");
+      }
+    });
+  });
+})();
