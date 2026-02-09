@@ -18,18 +18,24 @@ themeBtn.addEventListener("click", () => {
   setTheme(root.dataset.theme === "light" ? "dark" : "light");
 });
 
-document.getElementById("year").textContent = new Date().getFullYear();
+const yearEl = document.getElementById("year");
+if (yearEl) {
+  yearEl.textContent = new Date().getFullYear();
+}
 
-document.getElementById("contactForm").addEventListener("submit", (e) => {
-  e.preventDefault();
-  const data = new FormData(e.target);
-  const name = (data.get("name") || "").toString().trim();
-  const msg = (data.get("message") || "").toString().trim();
+const contactForm = document.getElementById("contactForm");
+if (contactForm) {
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const data = new FormData(e.target);
+    const name = (data.get("name") || "").toString().trim();
+    const msg = (data.get("message") || "").toString().trim();
 
-  const subject = encodeURIComponent(`Website message from ${name || "Someone"}`);
-  const body = encodeURIComponent(msg);
-  window.location.href = `mailto:you@example.com?subject=${subject}&body=${body}`;
-});
+    const subject = encodeURIComponent(`Website message from ${name || "Someone"}`);
+    const body = encodeURIComponent(msg);
+    window.location.href = `mailto:you@example.com?subject=${subject}&body=${body}`;
+  });
+}
 
 // Background particles
 const canvas = document.getElementById("bg");
