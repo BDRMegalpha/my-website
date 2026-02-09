@@ -1,10 +1,147 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>My Website</title>
-  </head>
-  <body>
-    <h1>It works 🎉</h1>
-    <p>This is a real website hosted on GitHub Pages.</p>
-  </body>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BDR Site</title>
+  <meta name="description" content="A sleek starter website template." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="bg" aria-hidden="true"></canvas>
+
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Home">BDR</a>
+
+    <nav class="nav">
+      <a href="#features">Features</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <button id="themeBtn" class="btn ghost" type="button" aria-label="Toggle theme">🌙</button>
+    </nav>
+  </header>
+
+  <main id="top" class="container">
+    <section class="hero">
+      <div class="hero-text">
+        <p class="pill">✨ Starter website</p>
+        <h1>Build something that looks expensive… for free.</h1>
+        <p class="sub">
+          Responsive layout, smooth sections, dark mode, and a subtle animated background.
+        </p>
+
+        <div class="actions">
+          <a class="btn" href="#projects">See Projects</a>
+          <a class="btn ghost" href="#contact">Contact</a>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-num">Fast</div>
+            <div class="stat-label">Loads quick</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">Clean</div>
+            <div class="stat-label">Easy to edit</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">Modern</div>
+            <div class="stat-label">2026 vibes</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card hero-card">
+        <h2>What is this?</h2>
+        <p>
+          A simple, customizable site template. Swap the text, add images, link your socials,
+          and you’re live.
+        </p>
+        <ul class="checklist">
+          <li>✅ Mobile-friendly</li>
+          <li>✅ Dark / light</li>
+          <li>✅ No frameworks</li>
+          <li>✅ Works on GitHub Pages</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <h2>Features</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Responsive</h3>
+          <p>Looks good on phones, tablets, and desktops without extra work.</p>
+        </article>
+        <article class="card">
+          <h3>Theme Toggle</h3>
+          <p>One click between dark and light. Remembers your choice.</p>
+        </article>
+        <article class="card">
+          <h3>Animated Background</h3>
+          <p>Subtle floating dots. Lightweight, not annoying.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <p class="muted">Replace these with your real stuff.</p>
+
+      <div class="grid">
+        <article class="card project">
+          <h3>Project One</h3>
+          <p>A short description of what it does and why it’s cool.</p>
+          <div class="row">
+            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span>
+          </div>
+          <a class="link" href="#" aria-label="Open Project One">Open →</a>
+        </article>
+
+        <article class="card project">
+          <h3>Project Two</h3>
+          <p>Another project card. Add links to GitHub, videos, or demos.</p>
+          <div class="row">
+            <span class="tag">Game Dev</span><span class="tag">Tools</span>
+          </div>
+          <a class="link" href="#" aria-label="Open Project Two">Open →</a>
+        </article>
+
+        <article class="card project">
+          <h3>Project Three</h3>
+          <p>Swap in screenshots later if you want. Cards scale automatically.</p>
+          <div class="row">
+            <span class="tag">Design</span><span class="tag">Content</span>
+          </div>
+          <a class="link" href="#" aria-label="Open Project Three">Open →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <div class="card">
+        <p class="muted">This uses a mailto link (no backend needed).</p>
+        <form id="contactForm" class="form">
+          <label>
+            Your name
+            <input name="name" placeholder="BDR Mega" autocomplete="name" required />
+          </label>
+          <label>
+            Message
+            <textarea name="message" rows="4" placeholder="Say hi…" required></textarea>
+          </label>
+          <button class="btn" type="submit">Send</button>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>© <span id="year"></span> BDR Site</span>
+      <span class="muted">Built with ✨ and zero frameworks.</span>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
 </html>
